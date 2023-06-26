@@ -1,0 +1,32 @@
+{
+  "man": [
+    {
+      "id": 1,
+      "title": "Кольцo",
+      "imgUrl": "https://skygold.com.ua/image/cache/catalog/product_images/646/6da2bf6512ae14db2c0587d80bf81704.png",
+      "sub_Category": [
+        {
+          "id": 1,
+          "name": "Кольцo"
+        },
+        {
+          "id": 2,
+          "name": "wefwpoekf"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Колье",
+      "imgUrl": "https://www.seekpng.com/png/full/3-38430_gold-chain-men-png.png",
+      "sub_Category": [
+        {
+          "id": 1,
+          "name": "22323",
+          "product": []
+        }
+      ]
+    }
+  ],
+  "woman": []
+}

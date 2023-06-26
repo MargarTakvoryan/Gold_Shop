@@ -1,0 +1,36 @@
+.subCategory_continer{
+    margin: auto;
+    height: 48px;
+    width: 90%;
+    /* background: saddlebrown; */
+    border: 10px;   
+    margin-bottom: 0px;
+
+}
+.subCategory_box_continer{
+    height: 40px;
+    width: 100%;
+    /* background-color: salmon; */
+    display: flex;
+    margin-bottom: 0px;
+}
+.subCategory_box{
+    height: 100%;
+    width: 130px;
+    /* background: seagreen; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.border{
+    margin: 0;
+    height: 6px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 1px solid;
+}
