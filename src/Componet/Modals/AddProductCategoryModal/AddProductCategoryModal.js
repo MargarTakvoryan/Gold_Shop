@@ -5,8 +5,8 @@ import { SlUser } from 'react-icons/sl';
 import { RiImageAddLine } from 'react-icons/ri';
 import styles from "./AddProductCategoryModal.module.css"
 
-function AddProductCategoryModal({setOpen, addGenderCategory}) {
-    console.log(addGenderCategory);
+function AddProductCategoryModal({setOpen, addManCategory,addWomanCategory}) {
+    // console.log(addGenderCategory);
     const [choous, setChoous] = useState(false);
     const [inputValue, setInputValue] = useState("");
   
@@ -55,10 +55,10 @@ function AddProductCategoryModal({setOpen, addGenderCategory}) {
                 <div className={styles.addBtnContiner}>
                     <button className={styles.addButton} onClick={() => {
                         if (choous === false && inputValue.trim()) {
-
+                            addWomanCategory(inputValue, file)
                             setOpen(false)
                         } else if (choous === true && inputValue.trim()) {
-                            addGenderCategory(inputValue, file)
+                            addManCategory(inputValue, file)
                             setOpen(false)
                         }
 
