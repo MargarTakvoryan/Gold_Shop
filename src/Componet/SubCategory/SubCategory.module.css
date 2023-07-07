@@ -4,7 +4,7 @@
     width: 90%;
     /* background: saddlebrown; */
     border: 10px;   
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 
 }
 .subCategory_box_continer{
@@ -15,6 +15,7 @@
     /* justify-content: center; */
     /* align-items: center; */
     margin-bottom: 0px;
+    /* cursor: pointer; */
 }
 .subCategory_box{
     height: 100%;

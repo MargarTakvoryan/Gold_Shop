@@ -1,1 +1,56 @@
-    
+.productContiner {
+    height: auto;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.productBox {
+    position: relative;
+    height: 170px;
+    width: 194px;
+    background: white;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.imgProduct {
+    height: 114px;
+    width: 174px;
+    border-radius: 5px;
+}
+
+.namePriceBox {
+    height: 30px;
+    width: 174px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    color: #1F1617;
+    font-size: 18px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.hoverBox{
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 0;
+    left: 170px;
+    background: saddlebrown;
+    border-radius: 0 10px 0 10px;
+}

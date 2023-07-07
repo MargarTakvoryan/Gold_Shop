@@ -5,6 +5,7 @@
     /* background: saddlebrown; */
     border: 10px;   
     margin-bottom: 0px;
+    
 
 }
 .subCategory_box_continer{
@@ -25,6 +26,7 @@
     text-decoration: none;
     margin-right: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .border{
     margin: 0;

@@ -1,7 +1,7 @@
 .Man_Continer {
     height: 100%;
     width: 91.3%;
-    background: salmon;
+    /* background: salmon; */
     display: flex; 
     align-items: center;
     margin: 0;

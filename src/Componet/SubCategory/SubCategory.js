@@ -6,29 +6,32 @@ import WomanSub_Category from './WomanSub_Category/WomanSub_Category'
 import AddSub_CategoryModal from '../Modals/AddSub_Category/AddSub_CategoryModal'
 import { AiOutlinePlus } from 'react-icons/ai';
 
-function SubCategory({ manSubCategory ,womanSubCategory }) {
-    const [open,setOpen] = useState(false)
+function SubCategory({ manSubCategory, womanSubCategory, addWomanSubCategory, addManSubCategory }) {
+    const [open, setOpen] = useState(false)
     // const [boxId, setBoxId] = useState(0)
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
 
     return (
         <div className={styles.subCategory_continer}>
             <div className={styles.subCategory_box_continer}>
                 {
-                    searchParams.get("man") === "man" && <ManSub_Category manSubCategory={manSubCategory} />
+                    searchParams.get("gender") === 'man' && <ManSub_Category manSubCategory={manSubCategory} />
                 }
                 {
-                    searchParams.get("woman") === "woman" && <WomanSub_Category womanSubCategory={womanSubCategory} />
+                    searchParams.get("gender") === 'woman' && <WomanSub_Category womanSubCategory={womanSubCategory} />
                 }
-                <div className={styles.addSub_Category_Continer} onClick={()=>{
-                    setOpen(true)
-                }}>
-                    <AiOutlinePlus/>
-                </div>
-                {/*  */}
+
+                {
+                    searchParams.get('category') && <div className={styles.addSub_Category_Continer} onClick={() => {
+                        setOpen(true)
+                    }}>
+                        <AiOutlinePlus />
+                    </div>
+                }
+
             </div>
-            {/* <hr className={styles.border} />  */}
-            {open && <AddSub_CategoryModal setOpen={setOpen}/>}
+            {/* {searchParams.get('category') && <hr className={styles.border} /> } */}
+            {open && <AddSub_CategoryModal setOpen={setOpen} addWomanSubCategory={addWomanSubCategory} addManSubCategory={addManSubCategory} />}
         </div>
     )
 }

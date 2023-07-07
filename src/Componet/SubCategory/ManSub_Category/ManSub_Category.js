@@ -8,19 +8,22 @@ function ManSub_Category({ manSubCategory }) {
     return (
 
         <>
-        {
-            manSubCategory.filter(({type,name})=>{
-                return type === searchParams.get("category")
-            })?.map(({ id, name }) => {
-                
-                    return <div key={id} onClick={() => { setBoxId(id) }} style={boxId === id ? { borderBottom: " 6.5px solid #0008C1" } : null} className={styles.subCategory_box} >
+            {
+                manSubCategory.filter(({ type }) => {
+                    return type === searchParams.get("category")
+                })?.map(({ id, name }) => {
+                    return <div key={id} onClick={() => {
+                        setSearchParams({
+                            gender:searchParams.get("gender"),
+                            category:searchParams.get("category"),
+                            subCategory:name
+                        })
+                        setBoxId(id) 
+                        }} style={searchParams.get("subCategory") === name ? { borderBottom: " 6.5px solid #0008C1" } : {}} className={styles.subCategory_box}>
                         {name}
                     </div>
-                
-
-
-            })
-        }
+                })
+            }
 
         </>
 

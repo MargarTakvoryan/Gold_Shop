@@ -4,9 +4,10 @@
     width: 90%;
     display: flex;
     box-sizing: border-box;
-    background: seagreen;
+    /* background: seagreen; */
     display: flex;
 }
+
 .gender_box {
     height: 120px;
     width: 120px;
@@ -15,16 +16,66 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+
 }
 
-.gender_Icone{
+.gender_Icone {
     height: 32px;
     width: 50px;
-    /* background: skyblue; */
-    
+    background: white;
+    border-radius: 6px;
+    /* border: 1px solid black; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.352);
     display: flex;
     justify-content: center;
     align-items: center;
-    color:black;
-    
+    color: black;
+    cursor: pointer;
+}
+
+.prodcutAddButton {
+    height: 70px;
+    width: 50px;
+    position: absolute;
+    top: 70px;
+    background: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+
+.filterContiner {
+    width: 50px;
+    height: 174px;
+    position: absolute;
+    top: 150px;
+    background: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.filterText {
+    margin: 0;
+    padding: 0;
+    height: 115px;
+    font-size: 18px;
+    color: #FFF;
+    /* font-size: 16px; */
+    /* font-family: Montserrat; */
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    /* text-transform: capitalize; */
 }

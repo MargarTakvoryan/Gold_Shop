@@ -1,31 +1,48 @@
 import React, { useState } from 'react'
 import { HiPlus } from 'react-icons/hi';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { AiFillDelete } from 'react-icons/ai';
+import { CiEdit } from 'react-icons/ci';
 import { useSearchParams } from 'react-router-dom';
 import styles from './Man.module.css'
 import AddProductCategoryModal from '../../Modals/AddProductCategoryModal/AddProductCategoryModal';
 
-function Man({ manCategory ,addManCategory}) {
-  // console.log(addGenderCategory);
+function Man({deleteManCategory, manCategory, addManCategory }) {
   const [open, setOpen] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
-   
-  // console.log(manCategory);
+
   return (
-    <div className={styles.Man_Continer}>
+    <div className={styles.man_Continer}>
       {
-        manCategory.map((post) => {
-          if (searchParams.get("man") === "man") {
+        manCategory?.map((post) => {
+
           return <div key={post.id} className={styles.manCategoryContiner} onClick={() => {
             // filterID(post.id)
             setSearchParams({
-              man: searchParams.get("man"),
+              gender: searchParams.get("gender"),
               category: post.title,
             })
           }}>
             <img className={styles.manCategoryImg} src={post.imgUrl} alt='aaa' />
             <p className={styles.manCategoryTitle}>{post.title}</p>
+            <div className={styles.hoverBox}>
+              <BsThreeDotsVertical />
+              <div className={styles.editDeletContiner} onClick={(e)=>{
+                e.stopPropagation()
+              }}>
+                <div className={styles.iconeBox}>
+                  Edit
+                  <CiEdit />
+                </div>
+                <div className={styles.iconeBox} onClick={()=>{
+                  deleteManCategory(post.id)
+                }}>
+                  Delete
+                  <AiFillDelete />
+                </div>
+              </div>
+            </div>
           </div>
-          }
         })
 
       }
@@ -35,8 +52,8 @@ function Man({ manCategory ,addManCategory}) {
       }}>
         <HiPlus />
       </div>
-      {open && <AddProductCategoryModal  setOpen={setOpen}  addManCategory={addManCategory}/>}
-    
+      {open && <AddProductCategoryModal setOpen={setOpen} addManCategory={addManCategory} />}
+
     </div>
   )
 }

@@ -5,21 +5,29 @@ import { SlUser } from 'react-icons/sl';
 import { RiImageAddLine } from 'react-icons/ri';
 import styles from "./AddProductCategoryModal.module.css"
 
-function AddProductCategoryModal({setOpen, addManCategory,addWomanCategory}) {
-    // console.log(addGenderCategory);
+function AddProductCategoryModal({ setOpen, addManCategory, addWomanCategory }) {
     const [choous, setChoous] = useState(false);
     const [inputValue, setInputValue] = useState("");
-  
-    const [file, setFile] = useState();     
+
+    const [file, setFile] = useState();
     function handleChange(e) {
-      setFile(URL.createObjectURL(e.target.files[0]));
+        setFile(URL.createObjectURL(e.target.files[0]));
     }
     return (
         <div className={styles.modalContiner} onClick={() => {
             setOpen(false)
         }}>
-            <div className={styles.modalBox} onClick={(e) => {
+            <form className={styles.modalBox} onClick={(e) => {
                 e.stopPropagation()
+            }} onSubmit={(e) => {
+                e.preventDefault()
+                if (choous === false && inputValue.trim()) {
+                    addWomanCategory(inputValue, file)
+                    setOpen(false)
+                } else if (choous === true && inputValue.trim()) {
+                    addManCategory(inputValue, file)
+                    setOpen(false)
+                }
             }}>
                 <div className={styles.title}>
                     Добавить Категория
@@ -52,7 +60,7 @@ function AddProductCategoryModal({setOpen, addManCategory,addWomanCategory}) {
                         Загрузить<br />Фото
                     </p>
                 </label> : <div className={styles.imgBox}><img className={styles.img} src={file} alt={"aaa"} /></div>}
-                <div className={styles.addBtnContiner}>
+                <div className={styles.addBtnContiner} >
                     <button className={styles.addButton} onClick={() => {
                         if (choous === false && inputValue.trim()) {
                             addWomanCategory(inputValue, file)
@@ -61,10 +69,9 @@ function AddProductCategoryModal({setOpen, addManCategory,addWomanCategory}) {
                             addManCategory(inputValue, file)
                             setOpen(false)
                         }
-
                     }}>Добавить</button>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
