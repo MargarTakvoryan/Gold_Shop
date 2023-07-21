@@ -6,22 +6,26 @@ import { CiEdit } from 'react-icons/ci';
 import { useSearchParams } from 'react-router-dom';
 import styles from './Man.module.css'
 import AddProductCategoryModal from '../../Modals/AddProductCategoryModal/AddProductCategoryModal';
+import EditManModal from '../../Modals/EditManModal/EditManModal';
 
-function Man({deleteManCategory, manCategory, addManCategory }) {
+function Man({editManCategory,deleteManCategory, manCategory, addManCategory }) {
   const [open, setOpen] = useState(false)
+  const [editModalOpen,setEditModalOpen] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
+  const [filterCategoryId,setFilterCategoryId] = useState()
 
   return (
     <div className={styles.man_Continer}>
       {
         manCategory?.map((post) => {
-
+         
           return <div key={post.id} className={styles.manCategoryContiner} onClick={() => {
             // filterID(post.id)
             setSearchParams({
               gender: searchParams.get("gender"),
               category: post.title,
             })
+            
           }}>
             <img className={styles.manCategoryImg} src={post.imgUrl} alt='aaa' />
             <p className={styles.manCategoryTitle}>{post.title}</p>
@@ -30,7 +34,10 @@ function Man({deleteManCategory, manCategory, addManCategory }) {
               <div className={styles.editDeletContiner} onClick={(e)=>{
                 e.stopPropagation()
               }}>
-                <div className={styles.iconeBox}>
+                <div className={styles.iconeBox} onClick={()=>{
+                  setEditModalOpen(true)
+                  setFilterCategoryId(post.id)
+                }}>
                   Edit
                   <CiEdit />
                 </div>
@@ -53,7 +60,7 @@ function Man({deleteManCategory, manCategory, addManCategory }) {
         <HiPlus />
       </div>
       {open && <AddProductCategoryModal setOpen={setOpen} addManCategory={addManCategory} />}
-
+      {editModalOpen && <EditManModal editManCategory={editManCategory} setEditModalOpen={setEditModalOpen} filterCategoryId={filterCategoryId}/>}
     </div>
   )
 }

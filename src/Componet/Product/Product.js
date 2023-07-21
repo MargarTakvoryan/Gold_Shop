@@ -5,10 +5,8 @@ import { CiEdit } from 'react-icons/ci';
 import styles from './Product.module.css'
 import { useSearchParams } from 'react-router-dom';
 
-function Product({ product }) {
-  // setSearchParam
+function Product({ product ,deleteProdcut}) {
   const [searchParams] = useSearchParams()
-
   return (
     <div className={styles.productContiner}>
       {
@@ -23,7 +21,19 @@ function Product({ product }) {
                 <p className={styles.price}>{price}</p>
               </div>
               <div className={styles.hoverBox}>
-
+                <BsThreeDotsVertical />
+                <div className={styles.editDeletContiner} >
+                  <div className={styles.iconeBox}>
+                    Edit
+                    <CiEdit />
+                  </div>
+                  <div className={styles.iconeBox} onClick={() => {
+                   deleteProdcut(id)
+                  }}>
+                    Delete
+                    <AiFillDelete />
+                  </div>
+                </div>
               </div>
             </div>
           )

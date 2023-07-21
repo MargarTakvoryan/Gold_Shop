@@ -6,7 +6,7 @@ import WomanSub_Category from './WomanSub_Category/WomanSub_Category'
 import AddSub_CategoryModal from '../Modals/AddSub_Category/AddSub_CategoryModal'
 import { AiOutlinePlus } from 'react-icons/ai';
 
-function SubCategory({ manSubCategory, womanSubCategory, addWomanSubCategory, addManSubCategory }) {
+function SubCategory({editManSubCategory,deleteWomanSubCategory,deleteManSubCategory, manSubCategory, womanSubCategory, addWomanSubCategory, addManSubCategory }) {
     const [open, setOpen] = useState(false)
     // const [boxId, setBoxId] = useState(0)
     const [searchParams] = useSearchParams()
@@ -15,10 +15,10 @@ function SubCategory({ manSubCategory, womanSubCategory, addWomanSubCategory, ad
         <div className={styles.subCategory_continer}>
             <div className={styles.subCategory_box_continer}>
                 {
-                    searchParams.get("gender") === 'man' && <ManSub_Category manSubCategory={manSubCategory} />
+                    searchParams.get("gender") === 'man' && <ManSub_Category editManSubCategory={editManSubCategory} deleteManSubCategory={deleteManSubCategory} manSubCategory={manSubCategory} />
                 }
                 {
-                    searchParams.get("gender") === 'woman' && <WomanSub_Category womanSubCategory={womanSubCategory} />
+                    searchParams.get("gender") === 'woman' && <WomanSub_Category deleteWomanSubCategory={deleteWomanSubCategory} womanSubCategory={womanSubCategory} />
                 }
 
                 {

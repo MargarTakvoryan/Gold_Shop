@@ -1,21 +1,24 @@
-.subCategory_continer{
+.subCategory_continer {
     margin: auto;
     height: 48px;
     width: 90%;
     /* background: saddlebrown; */
-    border: 10px;   
+    border: 10px;
     margin-bottom: 0px;
-    
+
 
 }
-.subCategory_box_continer{
+
+.subCategory_box_continer {
     height: 40px;
     width: 100%;
     /* background-color: salmon; */
     display: flex;
     margin-bottom: 0px;
 }
-.subCategory_box{
+
+.subCategory_box {
+    position: relative;
     height: 100%;
     width: 130px;
     /* background: seagreen; */
@@ -28,11 +31,63 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.border{
+
+.border {
     margin: 0;
     height: 6px;
     width: 100%;
     background: rgb(255, 255, 255);
     border-radius: 10px;
+    border: 1px solid;
+}
+
+
+.hoverBox {
+    display: none;
+}
+
+.subCategory_box:hover .hoverBox {
+    display: block;
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    top: 0;
+    left: 112px;
+    background: white;
+    border: 1px solid;
+    border-radius: 0 7px 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editDeletContiner {
+    display: none;
+}
+
+.iconeBox {
+    height: 20px;
+    width: 96%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hoverBox:hover .editDeletContiner {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    height: 45px;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(160, 160, 160, 0.838);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.511);
+}
+
+.iconeBox:hover {
+    background: white;
     border: 1px solid;
 }

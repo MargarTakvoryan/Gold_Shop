@@ -45,12 +45,50 @@
     text-transform: capitalize;
 }
 
-.hoverBox{
+.hoverBox {
+    
+    display: none;
+}
+
+.productBox:hover .hoverBox {
+    display: block;
     position: absolute;
     height: 25px;
     width: 25px;
     top: 0;
-    left: 170px;
-    background: saddlebrown;
+    left: 168px;
+    background: white;
+    border: 1px solid;
     border-radius: 0 10px 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editDeletContiner{
+    display: none;
+}
+.iconeBox{
+    height: 20px;
+    width: 96%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.hoverBox:hover .editDeletContiner {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    height: 45px;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(160, 160, 160, 0.838);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.511);
+}
+.iconeBox:hover{
+    background: white;
+    border: 1px solid;
 }

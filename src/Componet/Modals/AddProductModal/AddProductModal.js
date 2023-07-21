@@ -35,6 +35,7 @@ function AddProductModal({ addProduct, setAddProductCompOpen, manSubCategory, wo
     function handleChange4(e) {
         setFile4(URL.createObjectURL(e.target.files[0]));
     }
+   
     return (
         <div className={styles.addProductModal} onClick={() => {
             setAddProductCompOpen(false)

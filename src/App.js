@@ -116,30 +116,95 @@ function App() {
 
   function deleteManCategory(id) {
     axios.delete(`http://localhost:3000/man/${id}`)
-      .then((response) => {
+      .then(() => {
          setManCategory(manCategory.filter((category) => {
             return category.id !== id
           }))
       });
   }
-  // function deleteManSubCategory(id) {
-  //   axios.delete(`http://localhost:3000/man/${id}`)
-  //     .then((response) => {
-  //       manSubCategory(manSubCategory.filter((category) => {
-  //           return category.id !== id
-  //         }))
-  //     });
-  // }
+
+  function deleteWomanCategory(id) {
+    axios.delete(`http://localhost:3000/woman/${id}`)
+      .then(() => {
+        setWomanCategory(womanCategory.filter((category) => {
+            return category.id !== id
+          }))
+      });
+  }
+
+  function deleteProdcut(id) {
+    axios.delete(`http://localhost:3000/product/${id}`)
+      .then(() => {
+        setProduct(product.filter((category) => {
+            return category.id !== id
+          }))
+      });
+  }
+
+  function deleteManSubCategory(id) {
+    axios.delete(`http://localhost:3000/manSub_Category/${id}`)
+      .then(() => {
+        setManSubCategory(manSubCategory.filter((category) => {
+            return category.id !== id
+          }))
+      });
+  }
+
+  function deleteWomanSubCategory(id) {
+    axios.delete(`http://localhost:3000/womanSub_Category/${id}`)
+      .then(() => {
+        setWomanSubCategory(womanSubCategory.filter((category) => {
+            return category.id !== id
+          }))
+      });
+  }
 
 
+  // Edit
+
+  function editManCategory(id,editManCategory) {
+  
+    // console.log(id,editManCategory);
+    axios.put(`http://localhost:3000/man/${id}`,editManCategory)
+      
+      .then((response) => {
+        setManCategory(manCategory.map((category) => {
+            if(category.id === response.data.id){
+              return response.data
+            }else{
+              return category
+            }
+          }))
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+  }
+
+  function editManSubCategory(id,editManSubCategory){
+    axios.put(`http://localhost:3000/manSub_Category/${id}`,editManSubCategory)
+      
+      .then((response) => {
+        setManSubCategory(manSubCategory.map((category) => {
+            if(category.id === response.data.id){
+              return response.data
+            }else{
+              return category
+            }
+          }))
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+  }
 
   return (
     <div className="App">
       <Searche />
-      <Gender deleteManCategory={deleteManCategory} addProduct={addProduct} addWomanCategory={addWomanCategory} womanSubCategory={womanSubCategory} manSubCategory={manSubCategory} womanCategory={womanCategory} manCategory={manCategory} addManCategory={addManCategory} />
-      {searchParams.get('category') && <SubCategory manSubCategory={manSubCategory} womanSubCategory={womanSubCategory} addManSubCategory={addManSubCategory} addWomanSubCategory={addWomanSubCategory} />}
-      {searchParams.get("category") && searchParams.get("subCategory") && <Product product={product} />}
-      {searchParams.get("search") && <Product product={product} />}
+      <Gender editManCategory={editManCategory} deleteWomanCategory={deleteWomanCategory} deleteManCategory={deleteManCategory} addProduct={addProduct} addWomanCategory={addWomanCategory} womanSubCategory={womanSubCategory} manSubCategory={manSubCategory} womanCategory={womanCategory} manCategory={manCategory} addManCategory={addManCategory} />
+      {searchParams.get('category') && <SubCategory editManSubCategory={editManSubCategory} deleteWomanSubCategory={deleteWomanSubCategory} deleteManSubCategory={deleteManSubCategory} manSubCategory={manSubCategory} womanSubCategory={womanSubCategory} addManSubCategory={addManSubCategory} addWomanSubCategory={addWomanSubCategory} />}
+      {searchParams.get("category") && searchParams.get("subCategory") && <Product deleteProdcut={deleteProdcut} product={product} />}
+      {searchParams.get("search") && <Product  product={product} />}
 
     </div>
   );

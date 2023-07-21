@@ -13,6 +13,7 @@ function AddProductCategoryModal({ setOpen, addManCategory, addWomanCategory }) 
     function handleChange(e) {
         setFile(URL.createObjectURL(e.target.files[0]));
     }
+    
     return (
         <div className={styles.modalContiner} onClick={() => {
             setOpen(false)

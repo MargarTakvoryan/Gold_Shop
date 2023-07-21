@@ -1,0 +1,123 @@
+.modal{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+}
+
+.modalContiner {
+    height: 343px;
+    width: 345px;
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+}
+.title{
+    height: 50px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 30px;
+    
+}
+
+.addPhotoInput[type=file] {
+    display: none;
+}
+
+.addPhoto {
+    display: block;
+    height: 145px;
+    width: 90%;
+    background: #D3D3D3;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.iconPhoto {
+    height: 50px;
+    width: 50px;
+    color: white;
+}
+
+.inputBoxText {
+    text-align: center;
+    color: white;
+}
+
+
+.addBtnContiner {
+    height: 32px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addButton {
+    height: 32px;
+    width: 100%;
+    border: 1px solid blue;
+    background: blue;
+    border-radius: 20px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    /* identical to box height */
+    cursor: pointer;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+.imgBox{
+    height: 145px;
+    width: 100%;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    
+    /* margin-bottom: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img{
+    height: 100%;
+    /* width: 100%; */
+}
+
+.inputAddName {
+    height: 30px;
+    width: 90%;
+    outline: none;
+    border: none;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border-bottom: 1px solid #C1C1C1;
+}
