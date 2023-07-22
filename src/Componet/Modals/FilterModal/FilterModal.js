@@ -1,24 +1,31 @@
-import React, { useState } from 'react'
+import React from 'react';
 import styles from './FilterModal.module.css'
-
+import { Slider } from '@mui/material';
+import { useState } from 'react';
 function FilterModal({ setFilterModalOpen }) {
-  const [rangeOne,setRangeOne] = useState(0)
-  console.log(rangeOne);
-
+  const [rangeValue,setRangeValue] = useState([0,12000])
+ 
   return (
     <div className={styles.filterModal} onClick={() => {
       setFilterModalOpen(false)
     }}>
-      <form className={styles.filterModalContiner} onClick={(e) => {
-        e.preventDefault()
+      <div className={styles.filterModalContiner} onClick={(e) => {
         e.stopPropagation()
       }}>
-        <input type={'range'} value={rangeOne} max={100}  min={0} onChange={(e)=>{
-          setRangeOne(e.target.value)
-        }}/>
-      </form>
+        <Slider
+          // getAriaLabel={() => 'Temperature range'}
+          value={rangeValue}
+          onChange={(e)=>{
+            setRangeValue(e.target.value)
+          }}
+          valueLabelDisplay="auto"
+          // getAriaValueText={valuetext}
+          // max={12000}
+          // min={0}
+        />
+      </div>
     </div>
-  )
-}
 
-export default FilterModal
+  );
+}
+export default FilterModal;

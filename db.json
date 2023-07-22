@@ -9,11 +9,6 @@
       "id": 2,
       "title": "Колье",
       "imgUrl": "https://www.seekpng.com/png/full/3-38430_gold-chain-men-png.png"
-    },
-    {
-      "title": "Test1",
-      "imgUrl": "blob:http://localhost:3001/f751d93a-7a98-48d1-9ae7-ba5ad31d8404",
-      "id": 3
     }
   ],
   "manSub_Category": [
@@ -31,11 +26,6 @@
       "name": "Обручальные",
       "type": "Кольцо",
       "id": 6
-    },
-    {
-      "name": "Test",
-      "type": "Test1",
-      "id": 7
     }
   ],
   "woman": [
@@ -72,7 +62,7 @@
       "id": 1,
       "porductImgUrl": "https://www.apetogentleman.com/wp-content/uploads/2021/04/mens-ring-guide.jpg",
       "name": "A2222",
-      "price": "3000$",
+      "price": "3000",
       "genderType": "man",
       "subCategoryType": "Кольцо"
     },
@@ -80,7 +70,7 @@
       "id": 7,
       "porductImgUrl": "https://www.brides.com/thmb/wetvpn9r_BDvdj8N0OtFB2VeKbc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mensengagementring01-a93e6aafb5f9427690b601c9b8b16b5a.jpg",
       "name": "A7222",
-      "price": "3000$",
+      "price": "3000",
       "genderType": "man",
       "subCategoryType": "Кольцо"
     },
@@ -88,7 +78,7 @@
       "id": 9,
       "porductImgUrl": "https://www.candere.com/media/jewellery/images/GR01942_1.jpeg",
       "name": "A9222",
-      "price": "3000$",
+      "price": "3000",
       "genderType": "man",
       "subCategoryType": "Кольцо"
     },
@@ -96,7 +86,7 @@
       "id": 2,
       "porductImgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy14Zy-dqy4dxNv4ZTQdFlig8RlafdwdhX2Q&usqp=CAU",
       "name": "A5555",
-      "price": "3000$",
+      "price": "3000",
       "genderType": "woman",
       "subCategoryType": "Кольцо"
     },
@@ -104,7 +94,7 @@
       "id": 3,
       "porductImgUrl": "data:image/jpeg;base64,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",
       "name": "A666",
-      "price": "3000$",
+      "price": "3000",
       "genderType": "man",
       "subCategoryType": "Обручальные"
     },
@@ -112,17 +102,9 @@
       "id": 4,
       "porductImgUrl": "https://ae04.alicdn.com/kf/Sf66a6c439a45452da0ed0314bf012029y.jpg_640x640.jpg",
       "name": "A666",
-      "price": "3000$",
+      "price": "3000",
       "genderType": "man",
       "subCategoryType": "Колье"
-    },
-    {
-      "porductImgUrl": "blob:http://localhost:3001/119b71af-e0cd-408f-af95-1558d13e09fe",
-      "name": "jjj",
-      "price": "00000",
-      "genderType": "man",
-      "subCategoryType": "Test",
-      "id": 10
     }
   ]
 }

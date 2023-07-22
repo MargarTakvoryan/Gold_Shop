@@ -117,9 +117,9 @@ function App() {
   function deleteManCategory(id) {
     axios.delete(`http://localhost:3000/man/${id}`)
       .then(() => {
-         setManCategory(manCategory.filter((category) => {
-            return category.id !== id
-          }))
+        setManCategory(manCategory.filter((category) => {
+          return category.id !== id
+        }))
       });
   }
 
@@ -127,8 +127,8 @@ function App() {
     axios.delete(`http://localhost:3000/woman/${id}`)
       .then(() => {
         setWomanCategory(womanCategory.filter((category) => {
-            return category.id !== id
-          }))
+          return category.id !== id
+        }))
       });
   }
 
@@ -136,8 +136,8 @@ function App() {
     axios.delete(`http://localhost:3000/product/${id}`)
       .then(() => {
         setProduct(product.filter((category) => {
-            return category.id !== id
-          }))
+          return category.id !== id
+        }))
       });
   }
 
@@ -145,8 +145,8 @@ function App() {
     axios.delete(`http://localhost:3000/manSub_Category/${id}`)
       .then(() => {
         setManSubCategory(manSubCategory.filter((category) => {
-            return category.id !== id
-          }))
+          return category.id !== id
+        }))
       });
   }
 
@@ -154,57 +154,75 @@ function App() {
     axios.delete(`http://localhost:3000/womanSub_Category/${id}`)
       .then(() => {
         setWomanSubCategory(womanSubCategory.filter((category) => {
-            return category.id !== id
-          }))
+          return category.id !== id
+        }))
       });
   }
 
 
   // Edit
 
-  function editManCategory(id,editManCategory) {
-  
+  function editManCategory(id, editManCategory) {
+
     // console.log(id,editManCategory);
-    axios.put(`http://localhost:3000/man/${id}`,editManCategory)
-      
+    axios.put(`http://localhost:3000/man/${id}`, editManCategory)
+
       .then((response) => {
         setManCategory(manCategory.map((category) => {
-            if(category.id === response.data.id){
-              return response.data
-            }else{
-              return category
-            }
-          }))
+          if (category.id === response.data.id) {
+            return response.data
+          } else {
+            return category
+          }
+        }))
       })
-      .catch((err)=>{
+      .catch((err) => {
         console.log(err);
       })
   }
 
-  function editManSubCategory(id,editManSubCategory){
-    axios.put(`http://localhost:3000/manSub_Category/${id}`,editManSubCategory)
-      
+  function editManSubCategory(id, editManSubCategory) {
+    axios.put(`http://localhost:3000/manSub_Category/${id}`, editManSubCategory)
+
       .then((response) => {
         setManSubCategory(manSubCategory.map((category) => {
-            if(category.id === response.data.id){
-              return response.data
-            }else{
-              return category
-            }
-          }))
+          if (category.id === response.data.id) {
+            return response.data
+          } else {
+            return category
+          }
+        }))
       })
-      .catch((err)=>{
+      .catch((err) => {
         console.log(err);
       })
   }
+
+  function editProduct(id, editProduct) {
+    axios.put(`http://localhost:3000/product/${id}`, editProduct)
+      .then((response) => {
+        setProduct(product.map((category) => {
+          if (category.id === response.data.id) {
+            return response.data
+          } else {
+            return category
+          }
+        }))
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
 
   return (
     <div className="App">
       <Searche />
       <Gender editManCategory={editManCategory} deleteWomanCategory={deleteWomanCategory} deleteManCategory={deleteManCategory} addProduct={addProduct} addWomanCategory={addWomanCategory} womanSubCategory={womanSubCategory} manSubCategory={manSubCategory} womanCategory={womanCategory} manCategory={manCategory} addManCategory={addManCategory} />
       {searchParams.get('category') && <SubCategory editManSubCategory={editManSubCategory} deleteWomanSubCategory={deleteWomanSubCategory} deleteManSubCategory={deleteManSubCategory} manSubCategory={manSubCategory} womanSubCategory={womanSubCategory} addManSubCategory={addManSubCategory} addWomanSubCategory={addWomanSubCategory} />}
-      {searchParams.get("category") && searchParams.get("subCategory") && <Product deleteProdcut={deleteProdcut} product={product} />}
-      {searchParams.get("search") && <Product  product={product} />}
+      {searchParams.get("category") && searchParams.get("subCategory") && <Product editProduct={editProduct} deleteProdcut={deleteProdcut} product={product} />}
+      {searchParams.get("search") && <Product editProduct={editProduct} product={product} />}
+      {/* {!!searchParams.get("category") && !!searchParams.get("subCategory")  ? undefined : <Product product={product} />} */}
 
     </div>
   );

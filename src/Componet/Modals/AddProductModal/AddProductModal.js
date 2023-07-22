@@ -35,7 +35,7 @@ function AddProductModal({ addProduct, setAddProductCompOpen, manSubCategory, wo
     function handleChange4(e) {
         setFile4(URL.createObjectURL(e.target.files[0]));
     }
-   
+
     return (
         <div className={styles.addProductModal} onClick={() => {
             setAddProductCompOpen(false)
@@ -217,7 +217,7 @@ function AddProductModal({ addProduct, setAddProductCompOpen, manSubCategory, wo
                 </div>
                 <div className={styles.addProductButton}>
                     <button onClick={() => {
-                        addProduct(file,nameInput,priceInput,searchParams.get('gender'),searchParams.get('subCategory'))
+                        addProduct(file, nameInput, priceInput, searchParams.get('gender'), searchParams.get('subCategory'))
                         setAddProductCompOpen(false)
                     }}>Добавить</button>
                 </div>
