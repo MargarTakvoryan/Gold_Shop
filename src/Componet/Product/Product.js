@@ -6,12 +6,11 @@ import styles from './Product.module.css'
 import { useSearchParams } from 'react-router-dom';
 import EditProduct from '../Modals/EditProduct/EditProduct';
 
-function Product({editProduct, product, deleteProdcut }) {
+function Product({ valuePrice, editProduct, product, deleteProdcut }) {
   const [modalOpen, setModalOpen] = useState(false)
   const [filterId, setFilterId] = useState(0)
   const [searchParams] = useSearchParams()
-  
-
+  console.log(valuePrice[0]);
   return (
     <div className={styles.productContiner}>
       {
@@ -20,8 +19,8 @@ function Product({editProduct, product, deleteProdcut }) {
         })?.map(({ id, name, price, porductImgUrl }) => {
           return (
             <div key={id} className={styles.productBox} onClick={(e) => {
-              
-              
+
+
             }}>
               <img src={porductImgUrl} alt='productImg' className={styles.imgProduct} />
               <div className={styles.namePriceBox}>
@@ -34,7 +33,7 @@ function Product({editProduct, product, deleteProdcut }) {
                   <div className={styles.iconeBox} onClick={() => {
                     setFilterId(id)
                     setModalOpen(true)
-                    
+
                   }}>
                     Edit
                     <CiEdit />
@@ -140,6 +139,51 @@ function Product({editProduct, product, deleteProdcut }) {
           )
         })
       } */}
+      {/* {
+        product.filter(({ price, genderType, subCategoryType }) => {
+          if (valuePrice[0] && valuePrice[1]) {
+            const minPrice = parseFloat(valuePrice[0]);
+            const maxPrice = parseFloat(valuePrice[1]);
+            const productPrice = parseFloat(price);
+            return productPrice >= minPrice && productPrice <= maxPrice 
+          }
+          return true;
+        })
+        ?.map(({ id, name, price, porductImgUrl }) => {
+          return (
+            <div key={id} className={styles.productBox} onClick={(e) => {
+
+
+            }}>
+              <img src={porductImgUrl} alt='productImg' className={styles.imgProduct} />
+              <div className={styles.namePriceBox}>
+                <p>{name}</p>
+                <p className={styles.price}>{price}$</p>
+              </div>
+              <div className={styles.hoverBox}>
+                <BsThreeDotsVertical />
+                <div className={styles.editDeletContiner} >
+                  <div className={styles.iconeBox} onClick={() => {
+                    setFilterId(id)
+                    setModalOpen(true)
+
+                  }}>
+                    Edit
+                    <CiEdit />
+                  </div>
+                  <div className={styles.iconeBox} onClick={() => {
+                    deleteProdcut(id)
+                  }}>
+                    Delete
+                    <AiFillDelete />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        })
+      } */}
+
       {modalOpen && <EditProduct editProduct={editProduct} setModalOpen={setModalOpen} filterId={filterId} />}
     </div>
   )

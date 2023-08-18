@@ -1,3 +1,17 @@
+.filterModalContiner {
+    position: absolute;
+    height: 300px;
+    width: 270px;
+    background: white;
+    border-radius: 10px;
+    top: 150px;
+    left: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .filterModal {
     height: 100vh;
     width: 100%;
@@ -9,11 +23,80 @@
     padding: 0;
     z-index: 100;
 }
-.filterModalContiner{
-    position: absolute;
-    height: 300px;
-    width: 270px;
-    background: white;
-    top: 150px;
-    left: 52px;
+
+.inputDateBox {
+    height: 30px;
+    width: 100%;
+    /* background: salmon; */
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.inputDate {
+    height: 30px;
+    /* border-radius: 10px; */
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+}
+
+.inputRangeBox {
+    height: 88px;
+    width: 90%;
+    /* background: saddlebrown; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.inputRangeValue {
+    height: 30px;
+    width: 100%;
+    /* background: seagreen; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.title {
+
+    margin: 0;
+    padding: 0;
+    color: #2E2E2E;
+    text-align: start;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+
+}
+
+.inputRangeBox2 {
+    height: 88px;
+    width: 90%;
+    /* background: saddlebrown; */
+    
+}
+
+.minValue {
+    margin: 0;
+    padding: 0;
+    width: 90px;
+    height: 32px;
+    border: 1px solid #B3B3B4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.299);
+    text-align: center;
+    outline: none;
+}
+
+.minValue[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }

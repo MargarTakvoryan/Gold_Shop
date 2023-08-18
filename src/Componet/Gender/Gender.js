@@ -10,7 +10,7 @@ import AddProductModal from '../Modals/AddProductModal/AddProductModal';
 import { BiFilterAlt } from 'react-icons/bi';
 import FilterModal from '../Modals/FilterModal/FilterModal';
 
-function Gender({ editManCategory,deleteWomanCategory,deleteManCategory, addProduct, womanCategory, manSubCategory, womanSubCategory, manCategory, addManCategory, addWomanCategory }) {
+function Gender({ filterPriceFunc, editManCategory, deleteWomanCategory, deleteManCategory, addProduct, womanCategory, manSubCategory, womanSubCategory, manCategory, addManCategory, addWomanCategory }) {
     const [addProductCompOpen, setAddProductCompOpen] = useState(false)
     const [filterModalOpen, setFilterModalOpen] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
@@ -46,7 +46,7 @@ function Gender({ editManCategory,deleteWomanCategory,deleteManCategory, addProd
                 </div>
             }
             {searchParams.get("subCategory") &&
-                <div className={styles.filterContiner} onClick={()=>{
+                <div className={styles.filterContiner} onClick={() => {
                     setFilterModalOpen(true)
                 }}>
                     <div>
@@ -57,7 +57,7 @@ function Gender({ editManCategory,deleteWomanCategory,deleteManCategory, addProd
                     </p>
                 </div>}
             {addProductCompOpen && <AddProductModal addProduct={addProduct} womanSubCategory={womanSubCategory} manSubCategory={manSubCategory} manCategory={manCategory} womanCategory={womanCategory} setAddProductCompOpen={setAddProductCompOpen} />}
-            {filterModalOpen && <FilterModal setFilterModalOpen={setFilterModalOpen} />}
+            {filterModalOpen && <FilterModal filterPriceFunc={filterPriceFunc} setFilterModalOpen={setFilterModalOpen} />}
         </div>
     )
 }

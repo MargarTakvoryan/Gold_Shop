@@ -13,6 +13,7 @@ function App() {
   const [womanCategory, setWomanCategory] = useState([])
   const [manSubCategory, setManSubCategory] = useState([])
   const [womanSubCategory, setWomanSubCategory] = useState([])
+  const [valuePrice,setValuePrice] = useState([])
   const [product, setProduct] = useState([])
 
   const [searchParams] = useSearchParams()
@@ -214,14 +215,18 @@ function App() {
       })
   }
 
+  function filterPriceFunc(filterPrice){
+    return  setValuePrice(filterPrice)
+  } 
+  
 
   return (
     <div className="App">
       <Searche />
-      <Gender editManCategory={editManCategory} deleteWomanCategory={deleteWomanCategory} deleteManCategory={deleteManCategory} addProduct={addProduct} addWomanCategory={addWomanCategory} womanSubCategory={womanSubCategory} manSubCategory={manSubCategory} womanCategory={womanCategory} manCategory={manCategory} addManCategory={addManCategory} />
+      <Gender filterPriceFunc={filterPriceFunc} editManCategory={editManCategory} deleteWomanCategory={deleteWomanCategory} deleteManCategory={deleteManCategory} addProduct={addProduct} addWomanCategory={addWomanCategory} womanSubCategory={womanSubCategory} manSubCategory={manSubCategory} womanCategory={womanCategory} manCategory={manCategory} addManCategory={addManCategory} />
       {searchParams.get('category') && <SubCategory editManSubCategory={editManSubCategory} deleteWomanSubCategory={deleteWomanSubCategory} deleteManSubCategory={deleteManSubCategory} manSubCategory={manSubCategory} womanSubCategory={womanSubCategory} addManSubCategory={addManSubCategory} addWomanSubCategory={addWomanSubCategory} />}
-      {searchParams.get("category") && searchParams.get("subCategory") && <Product editProduct={editProduct} deleteProdcut={deleteProdcut} product={product} />}
-      {searchParams.get("search") && <Product editProduct={editProduct} product={product} />}
+      {searchParams.get("category") && searchParams.get("subCategory") && <Product valuePrice={valuePrice} editProduct={editProduct} deleteProdcut={deleteProdcut} product={product} />}
+      {searchParams.get("search") && <Product valuePrice={valuePrice} editProduct={editProduct} product={product} />}
       {/* {!!searchParams.get("category") && !!searchParams.get("subCategory")  ? undefined : <Product product={product} />} */}
 
     </div>
