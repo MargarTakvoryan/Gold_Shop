@@ -25,7 +25,8 @@ function EditManSubCategory({ editManSubCategory, filterId, setEditManSubModalOp
       <div className={styles.modalBox} onClick={(e) => {
         e.stopPropagation()
       }}>
-        <input type='text' value={subCatgory.name} onChange={(e) => {
+        <h1 className={styles.h1}>Изменить Подкатегорию</h1>
+        <input type='text' className={styles.input} value={subCatgory.name} onChange={(e) => {
           setSubCategory({ ...subCatgory, name: e.target.value })
         }} />
         <button onClick={()=>{

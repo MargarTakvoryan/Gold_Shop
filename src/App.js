@@ -6,6 +6,7 @@ import axios from 'axios';
 import SubCategory from './Componet/SubCategory/SubCategory';
 import { useSearchParams } from 'react-router-dom';
 import Product from './Componet/Product/Product';
+import { ClipLoader } from 'react-spinners';
 
 
 function App() {
@@ -13,8 +14,9 @@ function App() {
   const [womanCategory, setWomanCategory] = useState([])
   const [manSubCategory, setManSubCategory] = useState([])
   const [womanSubCategory, setWomanSubCategory] = useState([])
-  const [valuePrice,setValuePrice] = useState([])
+  const [valuePrice, setValuePrice] = useState([])
   const [product, setProduct] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const [searchParams] = useSearchParams()
   // const [filterid, setFilterid] = useState("")
@@ -98,6 +100,9 @@ function App() {
     }).catch(error => {
       // setError(error.message)
     })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }, [])
 
   function addProduct(porductImgUrl, name, price, genderType, subCategoryType) {
@@ -213,20 +218,37 @@ function App() {
       .catch((err) => {
         console.log(err);
       })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
 
-  function filterPriceFunc(filterPrice){
-    return  setValuePrice(filterPrice)
-  } 
-  
+  function filterPriceFunc(filterPrice) {
+    return setValuePrice(filterPrice)
+  }
+  if (isLoading) {
+    return (
+      <div style={{height:"100vh",width:"100%",display:'flex',justifyContent:'center',alignItems:'center'}}>
+        <ClipLoader
+          color={"red"}
+          loading={isLoading}
+          size={150}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+
+        />
+      </div>
+    )
+  }
 
   return (
     <div className="App">
+
       <Searche />
       <Gender filterPriceFunc={filterPriceFunc} editManCategory={editManCategory} deleteWomanCategory={deleteWomanCategory} deleteManCategory={deleteManCategory} addProduct={addProduct} addWomanCategory={addWomanCategory} womanSubCategory={womanSubCategory} manSubCategory={manSubCategory} womanCategory={womanCategory} manCategory={manCategory} addManCategory={addManCategory} />
       {searchParams.get('category') && <SubCategory editManSubCategory={editManSubCategory} deleteWomanSubCategory={deleteWomanSubCategory} deleteManSubCategory={deleteManSubCategory} manSubCategory={manSubCategory} womanSubCategory={womanSubCategory} addManSubCategory={addManSubCategory} addWomanSubCategory={addWomanSubCategory} />}
-      {searchParams.get("category") && searchParams.get("subCategory") && <Product valuePrice={valuePrice} editProduct={editProduct} deleteProdcut={deleteProdcut} product={product} />}
-      {searchParams.get("search") && <Product valuePrice={valuePrice} editProduct={editProduct} product={product} />}
+      {searchParams.get("category") && searchParams.get("subCategory") && <Product setIsLoading={setIsLoading} valuePrice={valuePrice} editProduct={editProduct} deleteProdcut={deleteProdcut} product={product} />}
+      {searchParams.get("search") && <Product setIsLoading={setIsLoading} valuePrice={valuePrice} editProduct={editProduct} product={product} />}
       {/* {!!searchParams.get("category") && !!searchParams.get("subCategory")  ? undefined : <Product product={product} />} */}
 
     </div>

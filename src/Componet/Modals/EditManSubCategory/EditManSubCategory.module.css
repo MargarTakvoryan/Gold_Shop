@@ -12,9 +12,30 @@
 }
 
 .modalBox {
-    height: 400px;
+    
+    height: 150px;
     width: 360px;
     background: white;
     padding: 5px 15px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  
+}
+.input{
+    height: 30px;
+    width: 90%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid;
+    font-size: 18px;
+}
+.h1{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: start;
+    font-size: 28px;
 }

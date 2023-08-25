@@ -6,14 +6,14 @@ import styles from './Product.module.css'
 import { useSearchParams } from 'react-router-dom';
 import EditProduct from '../Modals/EditProduct/EditProduct';
 
-function Product({ valuePrice, editProduct, product, deleteProdcut }) {
+function Product({ valuePrice, editProduct, product, deleteProdcut ,setIsLoading}) {
   const [modalOpen, setModalOpen] = useState(false)
   const [filterId, setFilterId] = useState(0)
   const [searchParams] = useSearchParams()
   console.log(valuePrice[0]);
   return (
     <div className={styles.productContiner}>
-      {
+      { !valuePrice ?
         product.filter(({ genderType, subCategoryType }) => {
           return genderType === searchParams.get("gender") && subCategoryType === searchParams.get("subCategory")
         })?.map(({ id, name, price, porductImgUrl }) => {
@@ -48,7 +48,7 @@ function Product({ valuePrice, editProduct, product, deleteProdcut }) {
               </div>
             </div>
           )
-        })
+        }):null
       }
       {
         searchParams.get("search")
@@ -139,15 +139,16 @@ function Product({ valuePrice, editProduct, product, deleteProdcut }) {
           )
         })
       } */}
-      {/* {
+      {
+        !!valuePrice === true ?
         product.filter(({ price, genderType, subCategoryType }) => {
           if (valuePrice[0] && valuePrice[1]) {
             const minPrice = parseFloat(valuePrice[0]);
             const maxPrice = parseFloat(valuePrice[1]);
             const productPrice = parseFloat(price);
-            return productPrice >= minPrice && productPrice <= maxPrice 
+            return productPrice >= minPrice && productPrice <= maxPrice && genderType === searchParams.get("gender") && subCategoryType === searchParams.get("subCategory")
           }
-          return true;
+          return true  && genderType === searchParams.get("gender") && subCategoryType === searchParams.get("subCategory") ;
         })
         ?.map(({ id, name, price, porductImgUrl }) => {
           return (
@@ -181,10 +182,10 @@ function Product({ valuePrice, editProduct, product, deleteProdcut }) {
               </div>
             </div>
           )
-        })
-      } */}
+        }) : null
+      }
 
-      {modalOpen && <EditProduct editProduct={editProduct} setModalOpen={setModalOpen} filterId={filterId} />}
+      {modalOpen && <EditProduct setIsLoading={setIsLoading} editProduct={editProduct} setModalOpen={setModalOpen} filterId={filterId} />}
     </div>
   )
 }

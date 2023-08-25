@@ -4,7 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import styles from './EditProduct.module.css'
 import axios from 'axios'
 
-function EditProduct({ editProduct, setModalOpen, filterId }) {
+function EditProduct({ editProduct, setModalOpen, filterId ,setIsLoading}) {
     const [product, setProduct] = useState({
         porductImgUrl: "",
         name: "",
@@ -72,6 +72,7 @@ function EditProduct({ editProduct, setModalOpen, filterId }) {
                 </div>
                 <div className={styles.addProductButton}>
                     <button onClick={() => {
+                        setIsLoading(true)
                         setModalOpen(false)
                         editProduct(filterId,product)
                     }}>Добавить</button>
