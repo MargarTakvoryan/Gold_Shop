@@ -12,7 +12,7 @@
     },
     {
       "title": "Test",
-      "imgUrl": "blob:http://localhost:3001/3f02b055-fb92-4f72-b082-3cb9e263f161",
+      "imgUrl": "blob:http://localhost:3001/8cece556-39f2-4129-98de-a23ff1fe85dd",
       "id": 3
     }
   ],
@@ -126,7 +126,7 @@
       "subCategoryType": "Колье"
     },
     {
-      "porductImgUrl": "blob:http://localhost:3001/f8f5e8ae-639a-435b-b947-00fe263a797f",
+      "porductImgUrl": "blob:http://localhost:3001/8395ed2d-9b1d-4ea7-a6f6-fbbddcdae117",
       "name": "Test1",
       "price": "1000",
       "genderType": "man",
@@ -139,10 +139,10 @@
       "genderType": "man",
       "subCategoryType": "Test",
       "id": 11,
-      "porductImgUrl": "blob:http://localhost:3001/ed5835b3-ae28-4535-94d0-97c31e3d2232"
+      "porductImgUrl": "blob:http://localhost:3001/ebc7d106-d3a9-4880-adbd-f4545e149ed0"
     },
     {
-      "porductImgUrl": "blob:http://localhost:3001/e0ea6cca-a84a-4715-9a31-4aa52aebbd58",
+      "porductImgUrl": "blob:http://localhost:3001/99249076-fc13-4c4c-8b3c-bbeca5f3e2b1",
       "name": "Test4",
       "price": "9000",
       "genderType": "man",
@@ -155,10 +155,10 @@
       "genderType": "man",
       "subCategoryType": "Test",
       "id": 13,
-      "porductImgUrl": "blob:http://localhost:3001/5ca4dc2a-ff15-48f6-82a5-3d73918fc179"
+      "porductImgUrl": "blob:http://localhost:3001/4cbc9fd0-71e5-4e3e-ab6d-38a9b9dd759c"
     },
     {
-      "porductImgUrl": "blob:http://localhost:3001/1decb3be-5eaa-4ef1-a23b-958d64c0bbfc",
+      "porductImgUrl": "blob:http://localhost:3001/d0759257-8117-40a7-b5f9-973f8b7979f7",
       "name": "Test6",
       "price": "5000",
       "genderType": "man",
@@ -166,7 +166,7 @@
       "id": 14
     },
     {
-      "porductImgUrl": "blob:http://localhost:3001/9a29f3ae-f5bb-4b0e-b254-b26ea2c54f69",
+      "porductImgUrl": "blob:http://localhost:3001/b84bdeb7-1a21-4b1e-a3e2-ba49cbbc336f",
       "name": "Woman Test1",
       "price": "3000",
       "genderType": "woman",

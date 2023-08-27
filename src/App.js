@@ -228,9 +228,10 @@ function App() {
   }
   if (isLoading) {
     return (
-      <div style={{height:"100vh",width:"100%",display:'flex',justifyContent:'center',alignItems:'center'}}>
+      <div style={{ height: "100vh", width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <ClipLoader
-          color={"red"}
+         background={'red'}
+          color={"blue"}
           loading={isLoading}
           size={150}
           aria-label="Loading Spinner"
