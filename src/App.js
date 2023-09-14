@@ -223,6 +223,25 @@ function App() {
       })
   }
 
+  function editWomanCategory(id, editManCategory) {
+
+    // console.log(id,editManCategory);
+    axios.put(`http://localhost:3000/woman/${id}`, editManCategory)
+
+      .then((response) => {
+        setWomanCategory(womanCategory.map((category) => {
+          if (category.id === response.data.id) {
+            return response.data
+          } else {
+            return category
+          }
+        }))
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
   function filterPriceFunc(filterPrice) {
     return setValuePrice(filterPrice)
   }
@@ -246,7 +265,7 @@ function App() {
     <div className="App">
 
       <Searche />
-      <Gender filterPriceFunc={filterPriceFunc} editManCategory={editManCategory} deleteWomanCategory={deleteWomanCategory} deleteManCategory={deleteManCategory} addProduct={addProduct} addWomanCategory={addWomanCategory} womanSubCategory={womanSubCategory} manSubCategory={manSubCategory} womanCategory={womanCategory} manCategory={manCategory} addManCategory={addManCategory} />
+      <Gender editWomanCategory={editWomanCategory} filterPriceFunc={filterPriceFunc} editManCategory={editManCategory} deleteWomanCategory={deleteWomanCategory} deleteManCategory={deleteManCategory} addProduct={addProduct} addWomanCategory={addWomanCategory} womanSubCategory={womanSubCategory} manSubCategory={manSubCategory} womanCategory={womanCategory} manCategory={manCategory} addManCategory={addManCategory} />
       {searchParams.get('category') && <SubCategory editManSubCategory={editManSubCategory} deleteWomanSubCategory={deleteWomanSubCategory} deleteManSubCategory={deleteManSubCategory} manSubCategory={manSubCategory} womanSubCategory={womanSubCategory} addManSubCategory={addManSubCategory} addWomanSubCategory={addWomanSubCategory} />}
       {searchParams.get("category") && searchParams.get("subCategory") && <Product setIsLoading={setIsLoading} valuePrice={valuePrice} editProduct={editProduct} deleteProdcut={deleteProdcut} product={product} />}
       {searchParams.get("search") && <Product setIsLoading={setIsLoading} valuePrice={valuePrice} editProduct={editProduct} product={product} />}

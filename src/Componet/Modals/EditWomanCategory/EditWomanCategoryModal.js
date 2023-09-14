@@ -16,7 +16,7 @@ function EditWomanCategoryModal({editWomanCategory,setEditModalOpen,filterCatego
     
 
     useEffect(()=>{
-        axios.get(`http://localhost:3000/man/${filterCategoryId}`)
+        axios.get(`http://localhost:3000/woman/${filterCategoryId}`)
         .then((response)=>{
             setCategory(response.data)
         })

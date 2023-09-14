@@ -6,15 +6,18 @@ import { CiEdit } from 'react-icons/ci';
 import AddProductCategoryModal from '../../Modals/AddProductCategoryModal/AddProductCategoryModal'
 import { HiPlus } from 'react-icons/hi';
 import { useSearchParams } from 'react-router-dom';
+import EditWomanCategoryModal from '../../Modals/EditWomanCategory/EditWomanCategoryModal';
 
-function Woman({deleteWomanCategory,womanCategory,addWomanCategory}) {
+function Woman({ editWomanCategory,deleteWomanCategory, womanCategory, addWomanCategory }) {
   const [open, setOpen] = useState(false)
+  const [editModalOpen, setEditModalOpen] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
+  const [filterCategoryId,setFilterCategoryId] = useState()
   return (
     <div className={styles.Man_Continer}>
       {
         womanCategory?.map((post) => {
-          
+
           // if (searchParams.get("woman") === "woman") {
           return <div key={post.id} className={styles.manCategoryContiner} onClick={() => {
             // filterID(post.id)
@@ -27,14 +30,17 @@ function Woman({deleteWomanCategory,womanCategory,addWomanCategory}) {
             <p className={styles.manCategoryTitle}>{post.title}</p>
             <div className={styles.hoverBox}>
               <BsThreeDotsVertical />
-              <div className={styles.editDeletContiner} onClick={(e)=>{
+              <div className={styles.editDeletContiner} onClick={(e) => {
                 e.stopPropagation()
               }}>
-                <div className={styles.iconeBox}>
+                <div className={styles.iconeBox} onClick={()=>{
+                  setEditModalOpen(true)
+                  setFilterCategoryId(post.id)
+                }}>
                   Edit
                   <CiEdit />
                 </div>
-                <div className={styles.iconeBox} onClick={()=>{
+                <div className={styles.iconeBox} onClick={() => {
                   deleteWomanCategory(post.id)
                 }}>
                   Delete
@@ -52,8 +58,8 @@ function Woman({deleteWomanCategory,womanCategory,addWomanCategory}) {
       }}>
         <HiPlus />
       </div>
-      {open && <AddProductCategoryModal  setOpen={setOpen} addWomanCategory={addWomanCategory} />}
-    
+      {open && <AddProductCategoryModal setOpen={setOpen} addWomanCategory={addWomanCategory} />}
+      {editModalOpen && <EditWomanCategoryModal editWomanCategory={editWomanCategory} setEditModalOpen={setEditModalOpen} filterCategoryId={filterCategoryId} />}
     </div>
   )
 }

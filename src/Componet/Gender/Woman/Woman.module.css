@@ -36,7 +36,7 @@
 }
 .manCategoryImg{
     height: 55px;
-    width: 80px;
+    max-width: 80px;
     /* background: saddlebrown; */
     display: flex;
     justify-content: center;
